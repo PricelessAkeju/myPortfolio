@@ -22,12 +22,25 @@ const Hero = () => {
             icon: <FaLinkedin/>
         }
     ]
+
+    window.addEventListener('scroll', function(){
+        const downArrow = document.querySelector(".down-arrow");
+        if(window.scrollY >= 90){
+            downArrow.classList.add('hide-down-arrow');
+        }else{
+            downArrow.classList.remove('hide-down-arrow');
+        }
+    });
+
+
   return (
    <section className='min-h-screen flex flex-col justify-start items-center p-5 text-center'>
     <h2 className='text-5xl text-rose-600 uppercase font-bold'>Akeju Tunji Samson</h2>
     <h3 className='py-3 text-2xl'>Full Stack Web Developer</h3>
     <p className='max-w-xl font-light text-gray-500'>
-      Hello,<span className='animate-pulse text-4xl justify-center'><FaRegHandshake /> </span>  I am a passionate Web developer with a keen eye for detail and a strong understanding of web technologies. I am currently looking for opportunities to contribute to innovative projects and build meaningful connections with clients.
+      Hello,<span className='animate-pulse text-4xl justify-center'><FaRegHandshake /> </span> 
+       I am a passionate Full Stack Web developer with a strong foundation in both frontend and backend technologies.
+       I am currently looking for opportunities to contribute to innovative projects and build meaningful connections with clients.
     </p>
 {/* SOCIAL ICONS */}
 <div className='flex justify-evenly py-8 lg:py-16 text-3xl w-full md:w-1/3'>
@@ -46,10 +59,12 @@ const Hero = () => {
         <a href='/Resume.pdf' 
         download={true}
         className='flex items-center justify-center mt-10 bg-gradient-to-r from-rose-600 to-teal-500 text-white py-2 rounded-lg'>
-             Resume <FaArrowDown />
+             Resume 
         </a>
     </div>
-
+    <div className='mt-10 down-arrow'>
+    <FaArrowDown className='text-gray-400 text-2xl animate-bounce' />
+    </div>
    </section>
   )
 }
